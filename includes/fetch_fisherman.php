@@ -1,7 +1,7 @@
 <?php
 
 try {
-    require_once "dbh.inc.php";
+    require "dbh.inc.php";
 
     $query = "SELECT name from fisherman;";
     $stmt = $pdo->prepare($query);
@@ -10,7 +10,7 @@ try {
     echo '<select id="fishermanSelection" name="fisherman" onchange="handleSelection(event)">';
 
     foreach ($fishermen as $fisherman) {
-        echo '<option value="' . htmlspecialchars($fisherman['id'], ENT_QUOTES, 'UTF-8') . '">'
+        echo '<option value="' . htmlspecialchars($fisherman['name'], ENT_QUOTES, 'UTF-8') . '">'
             . htmlspecialchars($fisherman['name'], ENT_QUOTES, 'UTF-8') . '</option>';
     }
 
@@ -21,3 +21,9 @@ try {
 } catch (PDOException $e) {
     die("Query failed:" . $e->getMessage());
 }
+?>
+<script>
+function handleSelection(event){
+    var selectedValue = event.target.value;
+}
+</script>

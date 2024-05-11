@@ -14,7 +14,7 @@
     <section class="wrapper-main">
         <h3>Add Transaction of a Fisherman</h3>
         <br>
-        <form id="fishermanForm">
+        <form id="fishermanForm" action="includes/add_fisherman_transaction_handler.php" method="post">
             <label for="fishermanSelection">Select Fisherman:</label>
             <!-- Include the PHP script to populate the dropdown -->
             <?php
@@ -25,7 +25,7 @@
             <!-- Date selector -->
             <label for="transactionDate">Transaction Date:</label>
             <input type="date" id="transactionDate" name="transactionDate"><br>
-
+            <p> Fish </p>
             <!-- Include the PHP script to generate input number boxes based on the fish list -->
             <?php
             // Include the PHP script to generate input number boxes based on the fish list
@@ -37,5 +37,10 @@
         </form>
     </section>
 </body>
-
+<script>
+        // Check if the submit parameter indicates success
+        if (new URLSearchParams(window.location.search).get('submit') === 'success') {
+            alert('Data successfully inserted');
+        }
+    </script>
 </html>

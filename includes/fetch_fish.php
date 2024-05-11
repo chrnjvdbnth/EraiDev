@@ -1,7 +1,7 @@
 <?php
 
 try {
-    require_once "dbh.inc.php";
+    require "dbh.inc.php";
 
     $query = "SELECT name from fish;";
     $stmt = $pdo->prepare($query);
